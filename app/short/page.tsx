@@ -1,4 +1,4 @@
-import GoUKLandingPage from "../page"
+import { GoUKLandingPage } from "@/components/GoUKLandingPage"
 
 export default function ShortFormPage() {
   return <GoUKLandingPage formMode="short" />
