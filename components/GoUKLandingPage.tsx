@@ -188,6 +188,7 @@ export function GoUKLandingPage({ formMode = FORM_MODE }: { formMode?: "full" | 
       if (!formData.email.trim()) errors.email = "Email is required"
       else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) errors.email = "Enter a valid email"
       if (!formData.city.trim()) errors.city = "City is required"
+      if (!formData.exam) errors.exam = "Please select an option"
     }
     if (!formData.phone.trim()) errors.phone = "WhatsApp number is required"
     else if (!/^[6-9]\d{9}$/.test(formData.phone.replace(/\s/g, ""))) errors.phone = "Enter a valid 10-digit number"
@@ -256,9 +257,16 @@ export function GoUKLandingPage({ formMode = FORM_MODE }: { formMode?: "full" | 
       if (typeof window !== "undefined" && typeof (window as typeof window & { gtag?: (...args: unknown[]) => void }).gtag === "function") {
         (window as typeof window & { gtag: (...args: unknown[]) => void }).gtag("event", "conversion", { send_to: CONVERSION_EVENT })
       }
+      if (formMode === "short") {
+        // Short form: redirect directly to WhatsApp
+        window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=Hi, I'm ${formData.name}. I want to know more about studying in the UK.`, "_blank")
+      }
       setFormSubmitted(true)
     } catch (error) {
       console.error("Form submission error:", error)
+      if (formMode === "short") {
+        window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=Hi, I'm ${formData.name}. I want to know more about studying in the UK.`, "_blank")
+      }
       setFormSubmitted(true)
     } finally {
       setIsSubmitting(false)
@@ -268,8 +276,8 @@ export function GoUKLandingPage({ formMode = FORM_MODE }: { formMode?: "full" | 
   // ── Render ──────────────────────────────────────────────
   return (
     <div className="min-h-screen bg-gradient-to-b from-slate-50 to-white font-sans">
-      {/* #1: URGENCY BANNER */}
-      <div className="bg-gradient-to-r from-red-600 to-red-700 text-white py-2.5 px-4 text-center text-sm md:text-base font-medium">
+      {/* #1: URGENCY BANNER — sticky */}
+      <div className="sticky top-0 z-50 bg-gradient-to-r from-red-600 to-red-700 text-white py-2.5 px-4 text-center text-sm md:text-base font-medium">
         <div className="max-w-7xl mx-auto flex items-center justify-center gap-2 flex-wrap">
           <Zap className="h-4 w-4 text-yellow-300 flex-shrink-0" />
           <span>September 2026 Intake Deadlines Closing Soon — <strong>Limited Seats Available</strong></span>
@@ -292,7 +300,7 @@ export function GoUKLandingPage({ formMode = FORM_MODE }: { formMode?: "full" | 
               <Button onClick={openWhatsApp} className="flex-1 h-12 bg-green-600 hover:bg-green-700 text-white font-bold rounded-xl">
                 <MessageCircle className="mr-2 h-5 w-5" /> WhatsApp
               </Button>
-              <Button onClick={scrollToForm} className="flex-1 h-12 bg-gradient-to-r from-indigo-600 to-violet-600 hover:from-indigo-500 hover:to-violet-500 text-white font-bold rounded-xl">
+              <Button onClick={scrollToForm} className="flex-1 h-12 bg-gradient-to-r from-indigo-700 to-indigo-600 hover:from-indigo-600 hover:to-indigo-500 text-white font-bold rounded-xl">
                 Check Eligibility
               </Button>
             </div>
@@ -337,7 +345,7 @@ export function GoUKLandingPage({ formMode = FORM_MODE }: { formMode?: "full" | 
         </header>
 
         {/* ── Hero Section ───────────────────────────────── */}
-        <section className="relative overflow-hidden bg-gradient-to-br from-indigo-700 via-violet-700 to-purple-800 text-white">
+        <section className="relative overflow-hidden bg-gradient-to-br from-indigo-900 via-indigo-800 to-violet-900 text-white">
           <div className="absolute inset-0 opacity-10">
             <div className="absolute top-20 left-10 w-72 h-72 bg-white rounded-full blur-3xl" />
             <div className="absolute bottom-20 right-10 w-96 h-96 bg-violet-300 rounded-full blur-3xl" />
@@ -454,14 +462,15 @@ export function GoUKLandingPage({ formMode = FORM_MODE }: { formMode?: "full" | 
 
                             {formMode === "full" && (
                               <div>
-                                <select value={formData.exam} onChange={(e) => setFormData({ ...formData, exam: e.target.value })} className="w-full h-12 rounded-xl bg-slate-50 border border-slate-200 text-slate-800 px-4 focus:border-indigo-500 focus:ring-indigo-500/20">
+                                <select value={formData.exam} onChange={(e) => setFormData({ ...formData, exam: e.target.value })} className={`w-full h-12 rounded-xl bg-slate-50 border border-slate-200 text-slate-800 px-4 focus:border-indigo-500 focus:ring-indigo-500/20 ${formErrors.exam ? "border-red-400" : ""}`}>
                                   <option value="">English Exam Taken?</option>
                                   {EXAM_OPTIONS.map((exam) => (<option key={exam} value={exam}>{exam}</option>))}
                                 </select>
+                                {formErrors.exam && <p className="text-red-500 text-xs mt-1 flex items-center gap-1"><AlertCircle className="h-3 w-3" />{formErrors.exam}</p>}
                               </div>
                             )}
 
-                            <Button type="submit" disabled={isSubmitting} className="w-full h-14 bg-gradient-to-r from-indigo-600 to-violet-600 hover:from-indigo-500 hover:to-violet-500 text-white font-bold text-lg rounded-xl shadow-lg shadow-indigo-500/25 disabled:opacity-70">
+                            <Button type="submit" disabled={isSubmitting} className="w-full h-14 bg-gradient-to-r from-indigo-700 to-indigo-600 hover:from-indigo-600 hover:to-indigo-500 text-white font-bold text-lg rounded-xl shadow-lg shadow-indigo-500/25 disabled:opacity-70">
                               {isSubmitting ? (
                                 <><span className="animate-spin mr-2"><svg className="h-5 w-5" viewBox="0 0 24 24"><circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none" /><path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" /></svg></span>Submitting...</>
                               ) : (
@@ -474,7 +483,7 @@ export function GoUKLandingPage({ formMode = FORM_MODE }: { formMode?: "full" | 
                         </motion.div>
                       ) : (
                         <motion.div key="success" initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} className="text-center py-8">
-                          <div className="w-20 h-20 mx-auto mb-6 rounded-full bg-gradient-to-br from-indigo-400 to-violet-500 flex items-center justify-center">
+                          <div className="w-20 h-20 mx-auto mb-6 rounded-full bg-gradient-to-br from-indigo-500 to-indigo-600 flex items-center justify-center">
                             <CheckCircle className="h-10 w-10 text-white" />
                           </div>
                           <h3 className="text-2xl font-bold text-slate-800 mb-2">Thank You!</h3>
@@ -508,7 +517,7 @@ export function GoUKLandingPage({ formMode = FORM_MODE }: { formMode?: "full" | 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {whyUK.map((item, i) => (
                 <motion.div key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }} className="bg-gradient-to-br from-slate-50 to-white p-6 rounded-2xl border border-slate-100 hover:border-indigo-200 hover:shadow-lg transition-all group">
-                  <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-indigo-500 to-violet-500 flex items-center justify-center mb-4 shadow-lg shadow-indigo-500/20">
+                  <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-indigo-600 to-indigo-500 flex items-center justify-center mb-4 shadow-lg shadow-indigo-500/20">
                     <item.icon className="h-7 w-7 text-white" />
                   </div>
                   <h3 className="text-xl font-bold text-slate-800 mb-2 group-hover:text-indigo-600 transition-colors">{item.title}</h3>
@@ -580,7 +589,7 @@ export function GoUKLandingPage({ formMode = FORM_MODE }: { formMode?: "full" | 
             <div className="space-y-6">
               {journeySteps.map((step, i) => (
                 <motion.div key={i} initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }} className="flex gap-4 sm:gap-6 items-start">
-                  <div className="flex-shrink-0 w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-gradient-to-br from-indigo-600 to-violet-600 flex items-center justify-center shadow-lg shadow-indigo-500/20">
+                  <div className="flex-shrink-0 w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-gradient-to-br from-indigo-700 to-indigo-600 flex items-center justify-center shadow-lg shadow-indigo-500/20">
                     <step.icon className="h-7 w-7 sm:h-8 sm:w-8 text-white" />
                   </div>
                   <div className="flex-1 bg-white p-4 sm:p-5 rounded-2xl border border-slate-100 hover:border-indigo-200 hover:shadow-md transition-all">
@@ -594,7 +603,7 @@ export function GoUKLandingPage({ formMode = FORM_MODE }: { formMode?: "full" | 
               ))}
             </div>
             <div className="text-center mt-10">
-              <Button onClick={scrollToForm} size="lg" className="h-14 px-8 bg-gradient-to-r from-indigo-600 to-violet-600 hover:from-indigo-500 hover:to-violet-500 text-white font-bold text-lg rounded-xl shadow-lg shadow-indigo-500/25">
+              <Button onClick={scrollToForm} size="lg" className="h-14 px-8 bg-gradient-to-r from-indigo-700 to-indigo-600 hover:from-indigo-600 hover:to-indigo-500 text-white font-bold text-lg rounded-xl shadow-lg shadow-indigo-500/25">
                 Start Your Journey <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
             </div>
@@ -628,7 +637,7 @@ export function GoUKLandingPage({ formMode = FORM_MODE }: { formMode?: "full" | 
         </section>
 
         {/* ── Offices ────────────────────────────────────── */}
-        <section className="py-16 md:py-24 px-4 md:px-8 bg-gradient-to-br from-indigo-700 via-violet-700 to-purple-800 text-white">
+        <section className="py-16 md:py-24 px-4 md:px-8 bg-gradient-to-br from-indigo-900 via-indigo-800 to-violet-900 text-white">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-12">
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">Visit Our <span className="text-amber-300">Offices</span></h2>
@@ -684,7 +693,7 @@ export function GoUKLandingPage({ formMode = FORM_MODE }: { formMode?: "full" | 
                   </div>
                   <p className="text-slate-700 mb-4 italic text-sm">&ldquo;{t.text}&rdquo;</p>
                   <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-violet-500 flex items-center justify-center text-white font-bold">{t.initial}</div>
+                    <div className="w-10 h-10 rounded-full bg-gradient-to-br from-indigo-600 to-indigo-500 flex items-center justify-center text-white font-bold">{t.initial}</div>
                     <div>
                       <div className="font-bold text-slate-800 text-sm">{t.name}</div>
                       <div className="text-xs text-indigo-600">{t.university}</div>
@@ -720,7 +729,7 @@ export function GoUKLandingPage({ formMode = FORM_MODE }: { formMode?: "full" | 
         </section>
 
         {/* #7: ── Intake Deadline CTA ────────────────────── */}
-        <section className="py-12 md:py-16 px-4 md:px-8 bg-gradient-to-r from-red-600 to-orange-600 text-white">
+        <section className="py-12 md:py-16 px-4 md:px-8 bg-gradient-to-r from-red-700 to-red-600 text-white">
           <div className="max-w-4xl mx-auto text-center">
             <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-white/20 rounded-full text-sm font-semibold mb-4">
               <Zap className="h-4 w-4 text-yellow-300" /> Intake Closing Soon
@@ -785,7 +794,7 @@ export function GoUKLandingPage({ formMode = FORM_MODE }: { formMode?: "full" | 
         </section>
 
         {/* #11: ── Softer Final CTA ──────────────────────── */}
-        <section className="py-16 md:py-20 px-4 md:px-8 bg-gradient-to-r from-indigo-600 to-violet-600 text-white">
+        <section className="py-16 md:py-20 px-4 md:px-8 bg-gradient-to-r from-indigo-700 to-indigo-600 text-white">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3">Still Confused About UK Admissions?</h2>
             <p className="text-lg text-white/90 mb-2">Talk to a counsellor in 15 minutes.</p>
