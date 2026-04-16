@@ -300,7 +300,7 @@ export function GoUKLandingPage({ formMode = FORM_MODE }: { formMode?: "full" | 
               <Button onClick={openWhatsApp} className="flex-1 h-12 bg-green-600 hover:bg-green-700 text-white font-bold rounded-xl">
                 <MessageCircle className="mr-2 h-5 w-5" /> WhatsApp
               </Button>
-              <Button onClick={scrollToForm} className="flex-1 h-12 bg-gradient-to-r from-indigo-700 to-indigo-600 hover:from-indigo-600 hover:to-indigo-500 text-white font-bold rounded-xl">
+              <Button onClick={scrollToForm} className="flex-1 h-12 bg-gradient-to-r from-[#1e3a5f] to-[#2563eb] hover:from-[#2563eb] hover:to-[#3b82f6] text-white font-bold rounded-xl">
                 Check Eligibility
               </Button>
             </div>
@@ -332,8 +332,8 @@ export function GoUKLandingPage({ formMode = FORM_MODE }: { formMode?: "full" | 
               />
             </div>
             <div className="flex items-center gap-2 md:gap-3">
-              <a href={`tel:${PHONE_NUMBER}`} className="flex items-center gap-1.5 md:gap-2 text-slate-700 hover:text-indigo-600 transition-colors font-medium text-sm md:text-base border border-slate-200 rounded-full px-3 md:px-4 h-10">
-                <Phone className="h-4 w-4 text-indigo-600 flex-shrink-0" />
+              <a href={`tel:${PHONE_NUMBER}`} className="flex items-center gap-1.5 md:gap-2 text-slate-700 hover:text-blue-700 transition-colors font-medium text-sm md:text-base border border-slate-200 rounded-full px-3 md:px-4 h-10">
+                <Phone className="h-4 w-4 text-blue-700 flex-shrink-0" />
                 <span className="hidden sm:inline">{PHONE_NUMBER}</span>
                 <span className="sm:hidden">Call</span>
               </a>
@@ -345,11 +345,11 @@ export function GoUKLandingPage({ formMode = FORM_MODE }: { formMode?: "full" | 
         </header>
 
         {/* ── Hero Section ───────────────────────────────── */}
-        <section className="relative overflow-hidden bg-gradient-to-br from-indigo-900 via-indigo-800 to-violet-900 text-white">
+        <section className="relative overflow-hidden bg-gradient-to-br from-[#0f2942] via-[#1a3a5c] to-[#162d4a] text-white">
           <div className="absolute inset-0 opacity-10">
             <div className="absolute top-20 left-10 w-72 h-72 bg-white rounded-full blur-3xl" />
-            <div className="absolute bottom-20 right-10 w-96 h-96 bg-violet-300 rounded-full blur-3xl" />
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-indigo-400 rounded-full blur-3xl opacity-20" />
+            <div className="absolute bottom-20 right-10 w-96 h-96 bg-blue-300 rounded-full blur-3xl" />
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-blue-400 rounded-full blur-3xl opacity-20" />
           </div>
 
           <div className="relative z-10 px-4 md:px-8 py-12 md:py-20">
@@ -399,7 +399,7 @@ export function GoUKLandingPage({ formMode = FORM_MODE }: { formMode?: "full" | 
 
                   {/* #2: Updated CTA text */}
                   <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
-                    <Button onClick={scrollToForm} size="lg" className="h-12 sm:h-14 px-6 sm:px-8 bg-amber-400 hover:bg-amber-300 text-indigo-900 font-bold text-base sm:text-lg rounded-xl shadow-lg">
+                    <Button onClick={scrollToForm} size="lg" className="h-12 sm:h-14 px-6 sm:px-8 bg-amber-400 hover:bg-amber-300 text-blue-900 font-bold text-base sm:text-lg rounded-xl shadow-lg">
                       Check My UK Eligibility <ArrowRight className="ml-2 h-5 w-5" />
                     </Button>
                     <Button onClick={openWhatsApp} size="lg" variant="outline" className="h-12 sm:h-14 px-6 sm:px-8 border-2 border-white/30 bg-white/10 hover:bg-white/20 text-white font-bold text-base sm:text-lg rounded-xl">
@@ -408,8 +408,8 @@ export function GoUKLandingPage({ formMode = FORM_MODE }: { formMode?: "full" | 
                   </div>
 
                   <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.5 }} className="mt-6 inline-flex items-center gap-3 px-6 py-3 bg-gradient-to-r from-amber-400 to-yellow-400 rounded-full shadow-lg shadow-amber-500/30">
-                    <Laptop className="w-5 h-5 sm:w-6 sm:h-6 text-indigo-900" />
-                    <span className="font-bold text-indigo-900 text-sm sm:text-lg">Online Counselling Available</span>
+                    <Laptop className="w-5 h-5 sm:w-6 sm:h-6 text-blue-900" />
+                    <span className="font-bold text-blue-900 text-sm sm:text-lg">Online Counselling Available</span>
                   </motion.div>
                 </motion.div>
 
@@ -420,7 +420,7 @@ export function GoUKLandingPage({ formMode = FORM_MODE }: { formMode?: "full" | 
                       {!formSubmitted ? (
                         <motion.div key="form" initial={{ opacity: 1 }} exit={{ opacity: 0 }}>
                           <div className="text-center mb-6">
-                            <div className="inline-flex items-center gap-2 px-3 py-1 bg-indigo-100 text-indigo-700 rounded-full text-sm font-semibold mb-3">
+                            <div className="inline-flex items-center gap-2 px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm font-semibold mb-3">
                               <Sparkles className="h-4 w-4" /> Free — Zero Charges
                             </div>
                             <h3 className="text-2xl font-bold text-slate-800">Check Your UK Eligibility</h3>
@@ -437,32 +437,32 @@ export function GoUKLandingPage({ formMode = FORM_MODE }: { formMode?: "full" | 
 
                           <form onSubmit={handleSubmit} className="space-y-4">
                             <div>
-                              <Input placeholder="Your Full Name" value={formData.name} onChange={(e) => setFormData({ ...formData, name: e.target.value })} className={`h-12 rounded-xl bg-slate-50 border-slate-200 text-slate-800 focus:border-indigo-500 focus:ring-indigo-500/20 ${formErrors.name ? "border-red-400" : ""}`} />
+                              <Input placeholder="Your Full Name" value={formData.name} onChange={(e) => setFormData({ ...formData, name: e.target.value })} className={`h-12 rounded-xl bg-slate-50 border-slate-200 text-slate-800 focus:border-blue-500 focus:ring-blue-500/20 ${formErrors.name ? "border-red-400" : ""}`} />
                               {formErrors.name && <p className="text-red-500 text-xs mt-1 flex items-center gap-1"><AlertCircle className="h-3 w-3" />{formErrors.name}</p>}
                             </div>
 
                             {formMode === "full" && (
                               <div>
-                                <Input type="email" placeholder="Email Address" value={formData.email} onChange={(e) => setFormData({ ...formData, email: e.target.value })} className={`h-12 rounded-xl bg-slate-50 border-slate-200 text-slate-800 focus:border-indigo-500 focus:ring-indigo-500/20 ${formErrors.email ? "border-red-400" : ""}`} />
+                                <Input type="email" placeholder="Email Address" value={formData.email} onChange={(e) => setFormData({ ...formData, email: e.target.value })} className={`h-12 rounded-xl bg-slate-50 border-slate-200 text-slate-800 focus:border-blue-500 focus:ring-blue-500/20 ${formErrors.email ? "border-red-400" : ""}`} />
                                 {formErrors.email && <p className="text-red-500 text-xs mt-1 flex items-center gap-1"><AlertCircle className="h-3 w-3" />{formErrors.email}</p>}
                               </div>
                             )}
 
                             <div>
-                              <Input type="tel" placeholder="WhatsApp Number" value={formData.phone} onChange={(e) => setFormData({ ...formData, phone: e.target.value })} className={`h-12 rounded-xl bg-slate-50 border-slate-200 text-slate-800 focus:border-indigo-500 focus:ring-indigo-500/20 ${formErrors.phone ? "border-red-400" : ""}`} />
+                              <Input type="tel" placeholder="WhatsApp Number" value={formData.phone} onChange={(e) => setFormData({ ...formData, phone: e.target.value })} className={`h-12 rounded-xl bg-slate-50 border-slate-200 text-slate-800 focus:border-blue-500 focus:ring-blue-500/20 ${formErrors.phone ? "border-red-400" : ""}`} />
                               {formErrors.phone && <p className="text-red-500 text-xs mt-1 flex items-center gap-1"><AlertCircle className="h-3 w-3" />{formErrors.phone}</p>}
                             </div>
 
                             {formMode === "full" && (
                               <div>
-                                <Input placeholder="Your City" value={formData.city} onChange={(e) => setFormData({ ...formData, city: e.target.value })} className={`h-12 rounded-xl bg-slate-50 border-slate-200 text-slate-800 focus:border-indigo-500 focus:ring-indigo-500/20 ${formErrors.city ? "border-red-400" : ""}`} />
+                                <Input placeholder="Your City" value={formData.city} onChange={(e) => setFormData({ ...formData, city: e.target.value })} className={`h-12 rounded-xl bg-slate-50 border-slate-200 text-slate-800 focus:border-blue-500 focus:ring-blue-500/20 ${formErrors.city ? "border-red-400" : ""}`} />
                                 {formErrors.city && <p className="text-red-500 text-xs mt-1 flex items-center gap-1"><AlertCircle className="h-3 w-3" />{formErrors.city}</p>}
                               </div>
                             )}
 
                             {formMode === "full" && (
                               <div>
-                                <select value={formData.exam} onChange={(e) => setFormData({ ...formData, exam: e.target.value })} className={`w-full h-12 rounded-xl bg-slate-50 border border-slate-200 text-slate-800 px-4 focus:border-indigo-500 focus:ring-indigo-500/20 ${formErrors.exam ? "border-red-400" : ""}`}>
+                                <select value={formData.exam} onChange={(e) => setFormData({ ...formData, exam: e.target.value })} className={`w-full h-12 rounded-xl bg-slate-50 border border-slate-200 text-slate-800 px-4 focus:border-blue-500 focus:ring-blue-500/20 ${formErrors.exam ? "border-red-400" : ""}`}>
                                   <option value="">English Exam Taken?</option>
                                   {EXAM_OPTIONS.map((exam) => (<option key={exam} value={exam}>{exam}</option>))}
                                 </select>
@@ -470,7 +470,7 @@ export function GoUKLandingPage({ formMode = FORM_MODE }: { formMode?: "full" | 
                               </div>
                             )}
 
-                            <Button type="submit" disabled={isSubmitting} className="w-full h-14 bg-gradient-to-r from-indigo-700 to-indigo-600 hover:from-indigo-600 hover:to-indigo-500 text-white font-bold text-lg rounded-xl shadow-lg shadow-indigo-500/25 disabled:opacity-70">
+                            <Button type="submit" disabled={isSubmitting} className="w-full h-14 bg-gradient-to-r from-[#1e3a5f] to-[#2563eb] hover:from-[#2563eb] hover:to-[#3b82f6] text-white font-bold text-lg rounded-xl shadow-lg shadow-blue-900/25 disabled:opacity-70">
                               {isSubmitting ? (
                                 <><span className="animate-spin mr-2"><svg className="h-5 w-5" viewBox="0 0 24 24"><circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none" /><path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" /></svg></span>Submitting...</>
                               ) : (
@@ -483,7 +483,7 @@ export function GoUKLandingPage({ formMode = FORM_MODE }: { formMode?: "full" | 
                         </motion.div>
                       ) : (
                         <motion.div key="success" initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} className="text-center py-8">
-                          <div className="w-20 h-20 mx-auto mb-6 rounded-full bg-gradient-to-br from-indigo-500 to-indigo-600 flex items-center justify-center">
+                          <div className="w-20 h-20 mx-auto mb-6 rounded-full bg-gradient-to-br from-[#1e3a5f] to-[#2563eb] flex items-center justify-center">
                             <CheckCircle className="h-10 w-10 text-white" />
                           </div>
                           <h3 className="text-2xl font-bold text-slate-800 mb-2">Thank You!</h3>
@@ -506,21 +506,21 @@ export function GoUKLandingPage({ formMode = FORM_MODE }: { formMode?: "full" | 
         <section className="py-16 md:py-24 px-4 md:px-8 bg-white">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-12">
-              <div className="inline-flex items-center gap-2 px-4 py-2 bg-indigo-100 text-indigo-700 rounded-full text-sm font-semibold mb-4">
+              <div className="inline-flex items-center gap-2 px-4 py-2 bg-blue-100 text-blue-800 rounded-full text-sm font-semibold mb-4">
                 <Globe className="h-4 w-4" /> Why the UK?
               </div>
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-slate-800 mb-4">
-                Why Study in the <span className="text-indigo-600">United Kingdom</span>?
+                Why Study in the <span className="text-blue-700">United Kingdom</span>?
               </h2>
               <p className="text-lg text-slate-600 max-w-2xl mx-auto">The UK offers world-class education, post-study work opportunities, and a globally recognised degree</p>
             </div>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {whyUK.map((item, i) => (
-                <motion.div key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }} className="bg-gradient-to-br from-slate-50 to-white p-6 rounded-2xl border border-slate-100 hover:border-indigo-200 hover:shadow-lg transition-all group">
-                  <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-indigo-600 to-indigo-500 flex items-center justify-center mb-4 shadow-lg shadow-indigo-500/20">
+                <motion.div key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }} className="bg-gradient-to-br from-slate-50 to-white p-6 rounded-2xl border border-slate-100 hover:border-blue-200 hover:shadow-lg transition-all group">
+                  <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-[#2563eb] to-[#3b82f6] flex items-center justify-center mb-4 shadow-lg shadow-blue-900/20">
                     <item.icon className="h-7 w-7 text-white" />
                   </div>
-                  <h3 className="text-xl font-bold text-slate-800 mb-2 group-hover:text-indigo-600 transition-colors">{item.title}</h3>
+                  <h3 className="text-xl font-bold text-slate-800 mb-2 group-hover:text-blue-700 transition-colors">{item.title}</h3>
                   <p className="text-slate-600">{item.desc}</p>
                 </motion.div>
               ))}
@@ -532,19 +532,19 @@ export function GoUKLandingPage({ formMode = FORM_MODE }: { formMode?: "full" | 
         <section className="py-16 md:py-24 px-4 md:px-8 bg-gradient-to-b from-slate-50 to-white">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-12">
-              <div className="inline-flex items-center gap-2 px-4 py-2 bg-violet-100 text-violet-700 rounded-full text-sm font-semibold mb-4">
+              <div className="inline-flex items-center gap-2 px-4 py-2 bg-blue-100 text-blue-800 rounded-full text-sm font-semibold mb-4">
                 <Award className="h-4 w-4" /> Our Difference
               </div>
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-slate-800 mb-4">
-                Why Students Choose <span className="text-violet-600">AEOC</span> Over Others
+                Why Students Choose <span className="text-blue-700">AEOC</span> Over Others
               </h2>
               <p className="text-lg text-slate-600 max-w-2xl mx-auto">Not all consultants are equal. Here&apos;s what makes AEOC Gujarat&apos;s most trusted UK specialist.</p>
             </div>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {whyAEOC.map((item, i) => (
-                <motion.div key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }} className="bg-white p-6 rounded-2xl border border-slate-100 hover:border-violet-200 hover:shadow-lg transition-all">
-                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-violet-100 to-indigo-100 flex items-center justify-center mb-4">
-                    <item.icon className="h-6 w-6 text-violet-600" />
+                <motion.div key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }} className="bg-white p-6 rounded-2xl border border-slate-100 hover:border-blue-200 hover:shadow-lg transition-all">
+                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-100 to-blue-100 flex items-center justify-center mb-4">
+                    <item.icon className="h-6 w-6 text-blue-700" />
                   </div>
                   <h3 className="text-lg font-bold text-slate-800 mb-2">{item.title}</h3>
                   <p className="text-slate-600 text-sm">{item.desc}</p>
@@ -559,14 +559,14 @@ export function GoUKLandingPage({ formMode = FORM_MODE }: { formMode?: "full" | 
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-12">
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-slate-800 mb-4">
-                What You&apos;ll <span className="text-indigo-600">Achieve</span> with AEOC
+                What You&apos;ll <span className="text-blue-700">Achieve</span> with AEOC
               </h2>
               <p className="text-lg text-slate-600">Real outcomes from real students</p>
             </div>
             <div className="grid sm:grid-cols-2 gap-4">
               {outcomes.map((outcome, i) => (
-                <motion.div key={i} initial={{ opacity: 0, x: -10 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.08 }} className="flex items-start gap-3 p-4 bg-gradient-to-r from-indigo-50 to-violet-50 rounded-xl border border-indigo-100">
-                  <CheckCircle className="h-5 w-5 text-indigo-600 flex-shrink-0 mt-0.5" />
+                <motion.div key={i} initial={{ opacity: 0, x: -10 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.08 }} className="flex items-start gap-3 p-4 bg-gradient-to-r from-blue-50 to-sky-50 rounded-xl border border-blue-100">
+                  <CheckCircle className="h-5 w-5 text-blue-700 flex-shrink-0 mt-0.5" />
                   <span className="text-slate-700 font-medium">{outcome}</span>
                 </motion.div>
               ))}
@@ -578,23 +578,23 @@ export function GoUKLandingPage({ formMode = FORM_MODE }: { formMode?: "full" | 
         <section className="py-16 md:py-24 px-4 md:px-8 bg-gradient-to-b from-slate-50 to-white">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-12">
-              <div className="inline-flex items-center gap-2 px-4 py-2 bg-violet-100 text-violet-700 rounded-full text-sm font-semibold mb-4">
+              <div className="inline-flex items-center gap-2 px-4 py-2 bg-blue-100 text-blue-800 rounded-full text-sm font-semibold mb-4">
                 <Plane className="h-4 w-4" /> Your Journey
               </div>
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-slate-800 mb-4">
-                Your <span className="text-violet-600">UK Journey</span> with AEOC
+                Your <span className="text-blue-700">UK Journey</span> with AEOC
               </h2>
               <p className="text-lg text-slate-600">From your first call to landing in the UK — we handle everything</p>
             </div>
             <div className="space-y-6">
               {journeySteps.map((step, i) => (
                 <motion.div key={i} initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }} className="flex gap-4 sm:gap-6 items-start">
-                  <div className="flex-shrink-0 w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-gradient-to-br from-indigo-700 to-indigo-600 flex items-center justify-center shadow-lg shadow-indigo-500/20">
+                  <div className="flex-shrink-0 w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-gradient-to-br from-[#1e3a5f] to-[#2563eb] flex items-center justify-center shadow-lg shadow-blue-900/20">
                     <step.icon className="h-7 w-7 sm:h-8 sm:w-8 text-white" />
                   </div>
-                  <div className="flex-1 bg-white p-4 sm:p-5 rounded-2xl border border-slate-100 hover:border-indigo-200 hover:shadow-md transition-all">
+                  <div className="flex-1 bg-white p-4 sm:p-5 rounded-2xl border border-slate-100 hover:border-blue-200 hover:shadow-md transition-all">
                     <div className="flex items-center gap-3 mb-1">
-                      <span className="text-xs font-bold text-indigo-500 bg-indigo-50 px-2 py-0.5 rounded-full">STEP {step.step}</span>
+                      <span className="text-xs font-bold text-blue-600 bg-blue-50 px-2 py-0.5 rounded-full">STEP {step.step}</span>
                       <h3 className="text-base sm:text-lg font-bold text-slate-800">{step.title}</h3>
                     </div>
                     <p className="text-slate-600 text-sm sm:text-base">{step.desc}</p>
@@ -603,7 +603,7 @@ export function GoUKLandingPage({ formMode = FORM_MODE }: { formMode?: "full" | 
               ))}
             </div>
             <div className="text-center mt-10">
-              <Button onClick={scrollToForm} size="lg" className="h-14 px-8 bg-gradient-to-r from-indigo-700 to-indigo-600 hover:from-indigo-600 hover:to-indigo-500 text-white font-bold text-lg rounded-xl shadow-lg shadow-indigo-500/25">
+              <Button onClick={scrollToForm} size="lg" className="h-14 px-8 bg-gradient-to-r from-[#1e3a5f] to-[#2563eb] hover:from-[#2563eb] hover:to-[#3b82f6] text-white font-bold text-lg rounded-xl shadow-lg shadow-blue-900/25">
                 Start Your Journey <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
             </div>
@@ -618,18 +618,18 @@ export function GoUKLandingPage({ formMode = FORM_MODE }: { formMode?: "full" | 
                 <Building className="h-4 w-4" /> Partner Universities
               </div>
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-slate-800 mb-4">
-                Study at the UK&apos;s <span className="text-indigo-600">Top Universities</span>
+                Study at the UK&apos;s <span className="text-blue-700">Top Universities</span>
               </h2>
               <p className="text-lg text-slate-600 max-w-2xl mx-auto">We have tie-ups with 1200+ universities — from Russell Group to modern institutions</p>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
               {universities.map((uni, i) => (
-                <motion.div key={i} initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ delay: i * 0.05 }} className="bg-gradient-to-br from-slate-50 to-white p-4 rounded-xl border border-slate-100 hover:border-indigo-200 hover:shadow-md transition-all text-center">
-                  <div className="w-12 h-12 mx-auto mb-3 rounded-full bg-gradient-to-br from-indigo-100 to-violet-100 flex items-center justify-center">
-                    <GraduationCap className="h-6 w-6 text-indigo-600" />
+                <motion.div key={i} initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ delay: i * 0.05 }} className="bg-gradient-to-br from-slate-50 to-white p-4 rounded-xl border border-slate-100 hover:border-blue-200 hover:shadow-md transition-all text-center">
+                  <div className="w-12 h-12 mx-auto mb-3 rounded-full bg-gradient-to-br from-indigo-100 to-blue-100 flex items-center justify-center">
+                    <GraduationCap className="h-6 w-6 text-blue-700" />
                   </div>
                   <h4 className="text-sm font-bold text-slate-800 leading-tight">{uni.name}</h4>
-                  <span className={`text-xs mt-1 inline-block px-2 py-0.5 rounded-full ${uni.tier === "Russell Group" ? "bg-amber-100 text-amber-700" : "bg-indigo-50 text-indigo-600"}`}>{uni.tier}</span>
+                  <span className={`text-xs mt-1 inline-block px-2 py-0.5 rounded-full ${uni.tier === "Russell Group" ? "bg-amber-100 text-amber-700" : "bg-blue-50 text-blue-700"}`}>{uni.tier}</span>
                 </motion.div>
               ))}
             </div>
@@ -637,7 +637,7 @@ export function GoUKLandingPage({ formMode = FORM_MODE }: { formMode?: "full" | 
         </section>
 
         {/* ── Offices ────────────────────────────────────── */}
-        <section className="py-16 md:py-24 px-4 md:px-8 bg-gradient-to-br from-indigo-900 via-indigo-800 to-violet-900 text-white">
+        <section className="py-16 md:py-24 px-4 md:px-8 bg-gradient-to-br from-[#0f2942] via-[#1a3a5c] to-[#162d4a] text-white">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-12">
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">Visit Our <span className="text-amber-300">Offices</span></h2>
@@ -672,7 +672,7 @@ export function GoUKLandingPage({ formMode = FORM_MODE }: { formMode?: "full" | 
                 <Star className="h-4 w-4" /> Success Stories
               </div>
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-slate-800 mb-4">
-                Students Who Made It to the <span className="text-indigo-600">UK</span>
+                Students Who Made It to the <span className="text-blue-700">UK</span>
               </h2>
               <p className="text-lg text-slate-600">5,000+ students from Gujarat are now studying abroad</p>
             </div>
@@ -693,10 +693,10 @@ export function GoUKLandingPage({ formMode = FORM_MODE }: { formMode?: "full" | 
                   </div>
                   <p className="text-slate-700 mb-4 italic text-sm">&ldquo;{t.text}&rdquo;</p>
                   <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-full bg-gradient-to-br from-indigo-600 to-indigo-500 flex items-center justify-center text-white font-bold">{t.initial}</div>
+                    <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#2563eb] to-[#3b82f6] flex items-center justify-center text-white font-bold">{t.initial}</div>
                     <div>
                       <div className="font-bold text-slate-800 text-sm">{t.name}</div>
-                      <div className="text-xs text-indigo-600">{t.university}</div>
+                      <div className="text-xs text-blue-700">{t.university}</div>
                       <div className="text-xs text-slate-400">{t.date}</div>
                     </div>
                   </div>
@@ -794,13 +794,13 @@ export function GoUKLandingPage({ formMode = FORM_MODE }: { formMode?: "full" | 
         </section>
 
         {/* #11: ── Softer Final CTA ──────────────────────── */}
-        <section className="py-16 md:py-20 px-4 md:px-8 bg-gradient-to-r from-indigo-700 to-indigo-600 text-white">
+        <section className="py-16 md:py-20 px-4 md:px-8 bg-gradient-to-r from-[#1e3a5f] to-[#2563eb] text-white">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3">Still Confused About UK Admissions?</h2>
             <p className="text-lg text-white/90 mb-2">Talk to a counsellor in 15 minutes.</p>
             <p className="text-white/70 mb-8">No sales pitch. Just honest, expert guidance.</p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button onClick={scrollToForm} size="lg" className="h-14 px-8 bg-amber-400 hover:bg-amber-300 text-indigo-900 font-bold text-lg rounded-xl">
+              <Button onClick={scrollToForm} size="lg" className="h-14 px-8 bg-amber-400 hover:bg-amber-300 text-blue-900 font-bold text-lg rounded-xl">
                 Get Free Counselling <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
               <Button onClick={openWhatsApp} size="lg" variant="outline" className="h-14 px-8 border-2 border-white/30 bg-white/10 hover:bg-white/20 text-white font-bold text-lg rounded-xl">
@@ -824,17 +824,17 @@ export function GoUKLandingPage({ formMode = FORM_MODE }: { formMode?: "full" | 
               <div>
                 <h4 className="font-bold text-white mb-4">Quick Links</h4>
                 <ul className="space-y-2 text-slate-400 text-sm">
-                  <li><a href="https://studyabroad.aeoc.in" className="hover:text-indigo-400 transition-colors">Study Abroad</a></li>
-                  <li><a href="https://ielts.aeoc.in" className="hover:text-indigo-400 transition-colors">IELTS Coaching</a></li>
-                  <li><a href="https://spokenenglish.aeoc.in" className="hover:text-indigo-400 transition-colors">Spoken English</a></li>
+                  <li><a href="https://studyabroad.aeoc.in" className="hover:text-blue-400 transition-colors">Study Abroad</a></li>
+                  <li><a href="https://ielts.aeoc.in" className="hover:text-blue-400 transition-colors">IELTS Coaching</a></li>
+                  <li><a href="https://spokenenglish.aeoc.in" className="hover:text-blue-400 transition-colors">Spoken English</a></li>
                 </ul>
               </div>
               <div>
                 <h4 className="font-bold text-white mb-4">Contact Us</h4>
                 <div className="space-y-3 text-slate-400 text-sm">
-                  <a href={`tel:${PHONE_NUMBER}`} className="flex items-center gap-2 hover:text-indigo-400 transition-colors"><Phone className="h-4 w-4 text-indigo-400" />{PHONE_NUMBER}</a>
+                  <a href={`tel:${PHONE_NUMBER}`} className="flex items-center gap-2 hover:text-blue-400 transition-colors"><Phone className="h-4 w-4 text-blue-400" />{PHONE_NUMBER}</a>
                   <a href={`https://wa.me/${WHATSAPP_NUMBER}`} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-green-400 transition-colors"><MessageCircle className="h-4 w-4 text-green-400" />WhatsApp: {PHONE_NUMBER}</a>
-                  <a href={`mailto:${EMAIL}`} className="flex items-center gap-2 hover:text-indigo-400 transition-colors"><Globe className="h-4 w-4 text-indigo-400" />{EMAIL}</a>
+                  <a href={`mailto:${EMAIL}`} className="flex items-center gap-2 hover:text-blue-400 transition-colors"><Globe className="h-4 w-4 text-blue-400" />{EMAIL}</a>
                 </div>
               </div>
             </div>
